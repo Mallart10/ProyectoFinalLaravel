@@ -11,10 +11,10 @@ class AlumnosSeeder extends Seeder
     public function run(): void
     {
         $alumnos = [
-            ['nombre' => 'Juan Pérez', 'curso' => '4º Primaria', 'edad' => 9],
-            ['nombre' => 'Laura Gómez', 'curso' => '5º Primaria', 'edad' => 10],
-            ['nombre' => 'Carlos Ruiz', 'curso' => '6º Primaria', 'edad' => 11],
-            ['nombre' => 'Ana Torres', 'curso' => '3º Primaria', 'edad' => 8],
+            ['nombre_completo' => 'Juan Pérez', 'curso' => '4º Primaria', 'edad' => 9],
+            ['nombre_completo' => 'Laura Gómez', 'curso' => '5º Primaria', 'edad' => 10],
+            ['nombre_completo' => 'Carlos Ruiz', 'curso' => '6º Primaria', 'edad' => 11],
+            ['nombre_completo' => 'Ana Torres', 'curso' => '3º Primaria', 'edad' => 8],
         ];
 
         foreach ($alumnos as $alumno) {

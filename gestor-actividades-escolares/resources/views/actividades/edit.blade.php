@@ -18,7 +18,7 @@
     @endif
     <div class="form-group">
         <label>Nombre:</label>
-        <input type="text" name="nombre_completo" class="form-control" value="{{ $actividad->nombre }}" required>
+        <input type="text" name="nombre_completo" class="form-control" value="{{ $actividad->nombre_completo }}" required>
     </div>
     <div class="form-group">
         <label>Descripción:</label>
