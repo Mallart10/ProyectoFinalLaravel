@@ -1,11 +1,21 @@
 
 
-@extends('layouts')
+@extends('layouts.app')
 
 @section('content')
 <h1>Editar Actividad</h1>
 <form method="POST" action="{{ route('actividades.update' , $actividad) }}">
     @csrf @method('PUT')
+    @if ($error->any())
+       <div class="alert alert-danger">
+         <strong>Errores encontrados:</strong>
+         <ul>
+            @foreach ($errors->all as $error)"
+                 <li>{{ $error }}</li>
+            @endforeach
+         </ul>  
+        </div>
+    @endif
     <div class="form-group">
         <label>Nombre:</label>
         <input type="text" name="nombre" class="form-control" value="{{ $actividad->nombre }}" required>
