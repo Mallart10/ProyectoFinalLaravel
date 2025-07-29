@@ -2,17 +2,20 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Actividad extends Model
 {
-    use HasFacoty;
+    use HasFactory;
 
-    protected $fillable= ['nombre','descipcion','dia_semana','horario'];
+    // ✅ Soluciona el problema indicando el nombre correcto de la tabla
+    protected $table = 'actividades';
 
-    public function  alumnos()
-    {
-        return $this->belongsToMany(Alumnos::class, 'inscripciones');
-    }
+    protected $fillable = [
+        'nombre',
+        'descripcion',
+        'dia_semana',
+        'horario'
+    ];
 }

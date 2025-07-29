@@ -1,38 +1,49 @@
 <?php
 
+namespace App\Http\Controllers;
+
+use App\Models\Actividad;
+use Illuminate\Http\Request;
 use App\Http\Requests\ActividadRequest;
 
 class ActividadController extends Controller
 {
-   
-
-    public function store(Request $request)
+    public function index()
     {
-        $request->validate([
-            'nombre' => 'required',
-            'dia_semana' => 'required',
-            'horario' => 'required',
-        ]);
+       $actividades = \App\Models\Actividad::all(); 
+    return view('actividades.index', compact('actividades'));
+    }
 
-        Actividad::create($request->all());
+    public function create()
+    {
+        return view('actividades.create');
+    }
+
+    public function store(ActividadRequest $request)
+    {
+        Actividad::create($request->validated());
         return redirect()->route('actividades.index')->with('success', 'Actividad creada');
     }
 
-    
-
-    
-
-    public function update(Request $request, Actividad $actividad)
+    public function show(Actividad $actividad)
     {
-        $request->validate([
-            'nombre' => 'required',
-            'dia_semana' => 'required',
-            'horario' => 'required',
-        ]);
+        return view('actividades.show', compact('actividad'));
+    }
 
-        $actividad->update($request->all());
+    public function edit(Actividad $actividad)
+    {
+        return view('actividades.edit', compact('actividad'));
+    }
+
+    public function update(ActividadRequest $request, Actividad $actividad)
+    {
+        $actividad->update($request->validated());
         return redirect()->route('actividades.index')->with('success', 'Actividad actualizada');
     }
 
-    
+    public function destroy(Actividad $actividad)
+    {
+        $actividad->delete();
+        return redirect()->route('actividades.index')->with('success', 'Actividad eliminada');
+    }
 }

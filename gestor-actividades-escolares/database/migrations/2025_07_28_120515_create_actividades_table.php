@@ -6,26 +6,21 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('actividades', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->test('descripcion');
-            $table->string('dia de la semana');
+            $table->text('descripcion'); // ✅ corregido
+            $table->string('dia_semana'); // ✅ corregido
             $table->string('horario');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('actividades');
     }
 };
+
