@@ -19,7 +19,7 @@
     
     <div class="form-group">
         <label>Nombre</label>
-        <input type="text" name="nombre" class="form-control"></textarea>
+        <input type="text" name="nombre_completo" class="form-control"></textarea>
     </div>
     <div class="form-group">
         <label>Descripcion</label>

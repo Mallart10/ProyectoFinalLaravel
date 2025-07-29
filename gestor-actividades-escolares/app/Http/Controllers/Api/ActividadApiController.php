@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Actividad;
+use Illuminate\Http\JsonResponse;
 
 class ActividadApiController extends Controller
 {
-    public function index()
+    public function index(): JsonResponse
     {
-        return response()->json([
-            'actividades'=>Actividad::all()
-        ]);
+        return response()->json(Actividad::all());
     }
 }
+

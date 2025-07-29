@@ -27,6 +27,8 @@ class AlumnoController extends Controller
             'curso' => 'required',
             'edad' => 'required|integer|min:3'
         ]);
+
+        Alumno::create($request->all());
     }
 
     
