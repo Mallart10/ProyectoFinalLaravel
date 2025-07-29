@@ -1,64 +1,58 @@
 <?php
 
-namespace App\Http\Controllers;
-
+use App\Models\Actividad;
 use Illuminate\Http\Request;
 
 class ActividadController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $actividades = Actividad::all();
+        return view('actividades.index', compact('actividades'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('actividades.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre' => 'required',
+            'dia_semana' => 'required',
+            'horario' => 'required',
+        ]);
+
+        Actividad::create($request->all());
+        return redirect()->route('actividades.index')->with('success', 'Actividad creada');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(Actividad $actividad)
     {
-        //
+        return view('actividades.show', compact('actividad'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit(Actividad $actividad)
     {
-        //
+        return view('actividades.edit', compact('actividad'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Actividad $actividad)
     {
-        //
+        $request->validate([
+            'nombre' => 'required',
+            'dia_semana' => 'required',
+            'horario' => 'required',
+        ]);
+
+        $actividad->update($request->all());
+        return redirect()->route('actividades.index')->with('success', 'Actividad actualizada');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(Actividad $actividad)
     {
-        //
+        $actividad->delete();
+        return redirect()->route('actividades.index')->with('success', 'Actividad eliminada');
     }
 }
