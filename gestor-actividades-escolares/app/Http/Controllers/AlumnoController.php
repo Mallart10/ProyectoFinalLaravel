@@ -8,19 +8,6 @@ use Illuminate\Http\Request;
 class AlumnoController extends Controller
 {
     
-    public function index()
-    {
-        $alumnos = Alumno::all();
-        return view('alumnos.index', compact ('alumnos'));
-    }
-
-    
-    public function create()
-    {
-        return view('alumnos.create');
-    }
-
-   
     public function store(Request $request)
     {
         $request->validate([
@@ -32,19 +19,6 @@ class AlumnoController extends Controller
         Alumno::create($request->all());
         return redirect()->route('alumnos.index')->wiht('succes', 'Alumno creado');
     }
-
-    
-    public function show(Alumno $alumno)
-    {
-        return view ('alumno.edit', compact('alumno'));
-    }
-
-    
-    public function edit(Alumno $alumno)
-    {
-        return view('alumnos.edit', compact('alumno'));
-    }
-
     
     public function update(Request $request, Alumno $alumno)
     {
@@ -56,9 +30,19 @@ class AlumnoController extends Controller
     }
 
     
-    public function destroy(string $id)
-    {
-        $alumno->delete();
-        return redirect()->route(alumnos.index)->with('succes', 'Alumno eliminado');
-    }
+   
+
+   
+    
+
+   
+
+    
+    
+
+    
+    
+
+    
+    
 }
