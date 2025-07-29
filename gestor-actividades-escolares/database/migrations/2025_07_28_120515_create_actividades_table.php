@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('actividades', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('descripcion');
-            $table->date('dia de la semana');
-            $table->date('horario');
+            $table->test('descripcion');
+            $table->string('dia de la semana');
+            $table->string('horario');
             $table->timestamps();
         });
     }

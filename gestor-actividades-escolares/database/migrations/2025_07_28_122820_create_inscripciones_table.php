@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('inscripciones', function (Blueprint $table) {
             $table->id();
-            $table->string('relacion entre alumno y actividad');
+            $table->unsignedBigInterger('alumno_id');
+            $table->unsignedBigInterger('actividada_id');
             $table->timestamps();
             
         });
