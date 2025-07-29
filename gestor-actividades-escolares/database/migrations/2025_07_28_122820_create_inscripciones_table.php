@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('inscripciones', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInterger('alumno_id');
-            $table->unsignedBigInterger('actividada_id');
+            $table->unsignedBigInteger('alumno_id');
+            $table->unsignedBigInteger('actividada_id');
             $table->timestamps();
             
         });
