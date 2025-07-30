@@ -10,8 +10,8 @@ class ActividadController extends Controller
 {
     public function index()
     {
-       $actividades = \App\Models\Actividad::all(); 
-    return view('actividades.index', compact('actividades'));
+       $actividades = Actividad::all(); 
+        return view('actividades.index', compact('actividades'));
     }
 
     public function create()

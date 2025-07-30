@@ -16,11 +16,11 @@ class InscripcionesSeeder extends Seeder
         $actividades = Actividad::all();
 
         // Relacionar cada alumno con 1-2 actividades aleatorias
-        foreach ($alumnos as $alumno) {
-            $alumno->actividades()->attach(
-                $actividades->random(rand(1, 2))->pluck('id')->toArray()
-            );
-        }
+        // foreach ($alumnos as $alumno) {
+        //     $alumno->actividades()->attach(
+        //         $actividades->random(rand(1, 2))->pluck('id')->toArray()
+        //     );
+        // }
     }
 }
 
