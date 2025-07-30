@@ -5,6 +5,8 @@
     <h1>Listado de Inscripciones</h1>
 
     <a href="{{ route('inscripciones.create') }}" class="btn btn-primary mb-3">Nueva Inscripción</a>
+    <a href="{{ route('inicio') }}" class="btn btn-secondary mb-3">Volver a Inicio</a>
+
 
     @if($inscripciones->count())
     <table class="table table-bordered">

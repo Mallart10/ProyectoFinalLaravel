@@ -15,6 +15,10 @@ return new class extends Migration
             $table->string('dia_semana'); // ✅ corregido
             $table->string('horario');
             $table->timestamps();
+
+          
+  
+           
         });
     }
 

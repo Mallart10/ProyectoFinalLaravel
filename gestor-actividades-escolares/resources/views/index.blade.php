@@ -1,8 +1,8 @@
      @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <h1>Lista de Actividades</h1>
+    
+
 
         @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>

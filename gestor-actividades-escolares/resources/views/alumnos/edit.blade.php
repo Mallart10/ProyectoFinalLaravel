@@ -29,7 +29,7 @@
             <input type="number" name="edad" class="form-control" value="{{ old('edad', $alumno->edad) }}">
             @error('edad')
                 <small class="text-danger">{{ $message }}</small>
-            @enderror
+            @endif
         </div>
 
         <button type="submit" class="btn btn-primary">Actualizar</button>

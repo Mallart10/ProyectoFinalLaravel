@@ -10,7 +10,7 @@ class ActividadController extends Controller
 {
     public function index()
     {
-       $actividades = Actividad::all(); 
+        $actividades = Actividad::all(); 
         return view('actividades.index', compact('actividades'));
     }
 
@@ -22,7 +22,7 @@ class ActividadController extends Controller
     public function store(ActividadRequest $request)
     {
         Actividad::create($request->validated());
-        return redirect()->route('actividades.index')->with('success', 'Actividad creada');
+        return redirect()->route('actividades.index')->with('success', 'Actividad creada correctamente.');
     }
 
     public function show(Actividad $actividad)
@@ -38,12 +38,12 @@ class ActividadController extends Controller
     public function update(ActividadRequest $request, Actividad $actividad)
     {
         $actividad->update($request->validated());
-        return redirect()->route('actividades.index')->with('success', 'Actividad actualizada');
+        return redirect()->route('actividades.index')->with('success', 'Actividad actualizada correctamente.');
     }
 
     public function destroy(Actividad $actividad)
     {
         $actividad->delete();
-        return redirect()->route('actividades.index')->with('success', 'Actividad eliminada');
+        return redirect()->route('actividades.index')->with('success', 'Actividad eliminada correctamente.');
     }
 }

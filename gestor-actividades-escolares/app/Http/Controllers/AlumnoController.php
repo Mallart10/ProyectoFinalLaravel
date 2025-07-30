@@ -30,7 +30,8 @@ class AlumnoController extends Controller
         ]);
 
         Alumno::create($request->all());
-        return redirect()->route('alumnos.index')->wiht('succes', 'Alumno creado');
+        return redirect()->route('alumnos.index')->with('success', 'Alumno creado correctamente');
+
     }
 
     public function edit(Alumno $alumno)

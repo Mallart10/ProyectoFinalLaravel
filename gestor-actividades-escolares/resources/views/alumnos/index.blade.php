@@ -4,6 +4,8 @@
 <div class="container">
     <h1>Listado de Alumnos</h1>
 
+    <a href="{{ route('inicio') }}" class="btn btn-secondary mb-3">Volver a Inicio</a>
+ 
     <a href="{{ route('alumnos.create') }}" class="btn btn-primary mb-3">Agregar Alumno</a>
 
     @if($alumnos->count())

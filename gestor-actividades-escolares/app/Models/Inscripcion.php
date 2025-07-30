@@ -12,6 +12,7 @@ class Inscripcion extends Model
     use HasFactory;
 
     protected $table = 'inscripciones';
+    protected $guarded = [];
 
     public function alumno()
     {
