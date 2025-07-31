@@ -5,8 +5,10 @@
     <h1>Listado de Alumnos</h1>
 
     <a href="{{ route('inicio') }}" class="btn btn-secondary mb-3">Volver a Inicio</a>
- 
+    <a href="{{ route('alumnos.create') }}" class="btn btn-primary mb-3">Crear nuevo alumno</a>
+    <a href="{{ route('alumnos.pdf') }}" class="btn btn-secondary mb-3">Descargar PDF</a>
     <a href="{{ route('alumnos.create') }}" class="btn btn-primary mb-3">Agregar Alumno</a>
+    <table border="1" width="100%" cellspacing="0" cellpadding="5">
 
     @if($alumnos->count())
     <table class="table table-bordered">

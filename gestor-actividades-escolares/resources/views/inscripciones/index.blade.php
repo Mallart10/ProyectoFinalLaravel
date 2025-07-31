@@ -6,6 +6,8 @@
 
     <a href="{{ route('inscripciones.create') }}" class="btn btn-primary mb-3">Nueva Inscripción</a>
     <a href="{{ route('inicio') }}" class="btn btn-secondary mb-3">Volver a Inicio</a>
+    <a href="{{ route('inscripciones.create') }}" class="btn btn-primary mb-3">Crear nueva inscripción</a>
+    <a href="{{ route('inscripciones.pdf') }}" class="btn btn-secondary mb-3">Descargar PDF</a>
 
 
     @if($inscripciones->count())

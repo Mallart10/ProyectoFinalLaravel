@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Actividad;
 use Illuminate\Http\Request;
 use App\Http\Requests\ActividadRequest;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ActividadController extends Controller
 {
@@ -46,4 +47,12 @@ class ActividadController extends Controller
         $actividad->delete();
         return redirect()->route('actividades.index')->with('success', 'Actividad eliminada correctamente.');
     }
+
+    public function pdf()
+{
+    $actividades = Actividad::all();
+    $pdf = Pdf::loadView('pdf.actividades', compact('actividades'));
+    return $pdf->download('actividades.pdf');
+}
+
 }

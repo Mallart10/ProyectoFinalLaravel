@@ -6,6 +6,7 @@ use App\Models\Inscripcion;
 use App\Models\Alumno;
 use App\Models\Actividad;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class InscripcionController extends Controller
 {
@@ -48,4 +49,11 @@ class InscripcionController extends Controller
         return redirect()->route('inscripciones.index')
             ->with('success', 'Inscripción registrada con éxito.');
     }
+
+    public function pdf()
+{
+    $inscripciones = \App\Models\Inscripcion::with(['alumno', 'actividad'])->get();
+    $pdf = Pdf::loadView('pdf.inscripciones', compact('inscripciones'));
+    return $pdf->download('inscripciones.pdf');
+}
 }

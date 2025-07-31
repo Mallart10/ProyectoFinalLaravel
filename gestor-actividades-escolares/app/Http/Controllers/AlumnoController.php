@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Alumno;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class AlumnoController extends Controller
@@ -55,6 +56,13 @@ class AlumnoController extends Controller
         $alumno->delete();
         return redirect()->route('alumnos.index')->with('success', 'Alumno eliminado.');
     }
+
+    public function pdf()
+{
+    $alumnos = \App\Models\Alumno::all();
+    $pdf = Pdf::loadView('pdf.alumnos', compact('alumnos'));
+    return $pdf->download('alumnos.pdf');
+}
 
   
     

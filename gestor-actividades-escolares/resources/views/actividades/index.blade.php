@@ -5,6 +5,8 @@
     <h1>Listado de Actividades</h1>
 
     <a href="{{ route('inicio') }}" class="btn btn-secondary mb-3">Volver a Inicio</a>
+    <a href="{{ route('actividades.create') }}" class="btn btn-primary mb-3">Crear nueva actividad</a>
+    <a href="{{ route('actividades.pdf') }}" class="btn btn-secondary mb-3">Descargar PDF</a>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -28,8 +30,8 @@
                     <td>{{ $actividad->dia_semana }}</td>
                     <td>{{ $actividad->horario }}</td>
                     <td>
-                        <a href="{{ route('actividades.edit', $actividad) }}" class="btn btn-warning btn-sm">Editar</a>
-                        <form action="{{ route('actividades.destroy', $actividad) }}" method="POST" style="display:inline;">
+                        <a href="{{ route('actividades.edit', $actividad->id) }}" class="btn btn-warning btn-sm">Editar</a>
+                        <form action="{{ route('actividades.destroy', $actividad->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro?')">Eliminar</button>
